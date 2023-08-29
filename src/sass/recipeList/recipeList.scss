@@ -1,0 +1,21 @@
+.recipe-list {
+  display: grid;
+  grid-template-columns: auto repeat(12, 1fr);
+  padding: 20px 0;
+  gap: 20px;
+
+  .filters {
+    grid-column: 1 / 4;
+    grid-row: 1 / -1;
+
+    border: solid black 1px;
+  }
+
+  .recipe-list-container {
+    grid-column: 4 / -1;
+    grid-row: 1 / -1;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(250px, 100%), 1fr));
+    gap: 20px;
+  }
+}
