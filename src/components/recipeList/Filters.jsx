@@ -27,7 +27,7 @@ function Filters({ setTimeFilter, setDifficultyFilter, setTypeFilter }) {
   };
 
   return (
-    <div className="filters">
+    <>
       <div className="filter-container" id="tid">
         <h3>Tid</h3>
         <label>
@@ -99,7 +99,7 @@ function Filters({ setTimeFilter, setDifficultyFilter, setTypeFilter }) {
           Dessert
         </label>
       </div>
-    </div>
+    </>
   );
 }
 
