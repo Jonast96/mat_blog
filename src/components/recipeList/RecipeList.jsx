@@ -21,16 +21,17 @@ function RecipeList({ recipe }) {
     );
   });
 
-  console.log(showFilters);
   return (
     <div className="recipe-list">
-      <FontAwesomeIcon
-        size="xl"
-        onClick={() => setShowFilters((prevState) => !prevState)}
-        icon={faFilter}
-        className="filter-icon"
-        style={{ cursor: "pointer", marginBottom: "10px" }}
-      />
+      <div className="toggle-filter">
+        <FontAwesomeIcon
+          size="xl"
+          onClick={() => setShowFilters((prevState) => !prevState)}
+          icon={faFilter}
+          className="filter-icon"
+          style={{ cursor: "pointer", marginBottom: "10px" }}
+        />
+      </div>
       <div className={`filters ${showFilters ? "show" : "hide"}`}>
         <Filters
           setTimeFilter={setTimeFilter}

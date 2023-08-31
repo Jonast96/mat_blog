@@ -20,6 +20,16 @@
     display: none;
   }
 
+  .remove-filters {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+
+    font-size: 0.8rem;
+    color: #555;
+    cursor: pointer;
+  }
+
   .recipe-list-container {
     grid-column: 4 / -1;
     grid-row: 1 / -1;
@@ -48,6 +58,9 @@
     .filters {
       display: flex;
       flex-direction: column;
+    }
+    .toggle-filter {
+      display: none;
     }
   }
 }

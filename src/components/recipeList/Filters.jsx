@@ -1,3 +1,5 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRemove } from "@fortawesome/free-solid-svg-icons";
 function Filters({ setTimeFilter, setDifficultyFilter, setTypeFilter }) {
   const handleTimeChange = (e) => {
     const value = e.target.value;
