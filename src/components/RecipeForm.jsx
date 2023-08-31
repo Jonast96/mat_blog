@@ -3,7 +3,6 @@ import TextInput from "./TextInput";
 import IngredientsList from "./IngredientsList";
 import TextAreaInput from "./TextAreaInput";
 import DropdownSelect from "./DropdownSelect";
-import NumberInput from "./NumberInput";
 
 function RecipeForm({ postRecipe, author }) {
   const [recipe, setRecipe] = useState({
@@ -50,10 +49,20 @@ function RecipeForm({ postRecipe, author }) {
 
   const dishOptions = [
     { label: "ingen", value: "" },
-    { label: "frokost/lunsj", value: "frokost/lunsj" },
+    { label: "frokost", value: "frokost" },
+    { label: "lunsj", value: "lunsj" },
     { label: "forrett", value: "forrett" },
     { label: "middag", value: "middag" },
     { label: "dessert", value: "dessert" },
+  ];
+
+  const timeOptions = [
+    { label: "ingen", value: "" },
+    { label: "0-15 min", value: "0-15" },
+    { label: "15-30 min", value: "15-30" },
+    { label: "30-60 min", value: "30-60" },
+    { label: "60-120 min", value: "60-120" },
+    { label: "over 120 min", value: "over 120" },
   ];
 
   return (
@@ -100,11 +109,16 @@ function RecipeForm({ postRecipe, author }) {
           onChange={(value) => handleChange("dish", value)}
         />
       </div>
-      <NumberInput
-        value={recipe.time}
-        onChange={(value) => handleChange("time", value)}
-        placeholder="Tid i minutter"
-      />
+
+      <div>
+        Tid:
+        <DropdownSelect
+          options={timeOptions}
+          selectedValue={recipe.time}
+          onChange={(value) => handleChange("time", value)}
+        />
+      </div>
+
       <button type="submit">Add Recipe</button>
     </form>
   );

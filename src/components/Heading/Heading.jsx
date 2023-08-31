@@ -1,7 +1,6 @@
 import "../../sass/heading/heading.scss";
 
 function Heading({ recipe }) {
-  console.log(recipe);
   return (
     <div
       style={{ backgroundImage: `url(${recipe?.recipeImage})` }}

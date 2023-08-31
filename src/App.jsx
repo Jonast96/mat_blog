@@ -1,7 +1,4 @@
 import { useState, useEffect } from "react";
-import SignInButton from "./components/Header/SignInButton";
-import SignOutButton from "./components/Header/SignOutButton";
-import RecipeForm from "./components/RecipeForm";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
@@ -14,11 +11,11 @@ import {
   doc,
   deleteDoc,
 } from "@firebase/firestore";
-import RecipeListItem from "./components/RecipeListItem";
 import Nav from "./components/Header/Nav";
 import Heading from "./components/Heading/Heading";
-import RecipeCard from "./components/RecipeCard";
 import RecipeList from "./components/recipeList/RecipeList";
+import Loading from "./components/Loading";
+import RecipeForm from "./components/RecipeForm";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -101,12 +98,16 @@ function App() {
   return (
     <>
       <Nav user={user} signOutUser={signOutUser} />
-      <main className="container">
-        {/* <RecipeForm postRecipe={addRecipe} author={user} /> */}
+      {recipes.length > 0 ? (
+        <main className="container">
+          <RecipeForm postRecipe={addRecipe} author={user} />
 
-        <Heading recipe={recipes[0]} />
-        <RecipeList recipe={recipes} />
-      </main>
+          <Heading recipe={recipes[0]} />
+          <RecipeList recipe={recipes} />
+        </main>
+      ) : (
+        <Loading />
+      )}
 
       {/* <footer>
         <p>&copy; 2023</p>

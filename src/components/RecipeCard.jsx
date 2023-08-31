@@ -1,7 +1,6 @@
 import "../sass/recipeCard.scss";
 
 function RecipeCard({ recipe }) {
-  console.log(recipe);
   return (
     <div className="recipe-card">
       <img src={recipe?.recipeImage} alt="" />
@@ -9,8 +8,15 @@ function RecipeCard({ recipe }) {
         <span>{recipe?.authorName}</span>
         <h2>{recipe?.title}</h2>
         <div className="tags-container">
-          <span className="tags">{recipe?.difficulty}</span>
-          <span className="tags">{recipe?.dish}</span>
+          {recipe?.difficulty ? (
+            <span className="tags">{recipe?.difficulty}</span>
+          ) : null}
+          {recipe?.dish ? <span className="tags">{recipe?.dish}</span> : null}
+          <div>
+            {recipe?.time ? (
+              <span className="tags">{recipe?.time} min</span>
+            ) : null}
+          </div>
         </div>
       </div>
     </div>
