@@ -21,7 +21,14 @@ function IngredientsList({ ingredients, setIngredients }) {
           placeholder={`Ingredient ${index + 1}`}
         />
       ))}
-      <button type="button" onClick={addIngredient}>
+      <button
+        style={{
+          marginTop: "0.5rem",
+        }}
+        className="button"
+        type="button"
+        onClick={addIngredient}
+      >
         Add Ingredient
       </button>
     </div>

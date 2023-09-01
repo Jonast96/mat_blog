@@ -12,11 +12,9 @@ function RecipeCard({ recipe }) {
             <span className="tags">{recipe?.difficulty}</span>
           ) : null}
           {recipe?.dish ? <span className="tags">{recipe?.dish}</span> : null}
-          <div>
-            {recipe?.time ? (
-              <span className="tags">{recipe?.time} min</span>
-            ) : null}
-          </div>
+          {recipe?.time ? (
+            <span className="tags">{recipe?.time} min</span>
+          ) : null}
         </div>
       </div>
     </div>

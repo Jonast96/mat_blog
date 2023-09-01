@@ -15,10 +15,10 @@ import Nav from "./components/Header/Nav";
 import Heading from "./components/Heading/Heading";
 import RecipeList from "./components/recipeList/RecipeList";
 import Loading from "./components/Loading";
-import RecipeForm from "./components/RecipeForm";
+import CreateRecipe from "./components/createRecipe/CreateRecipe";
 
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+
 const firebaseConfig = {
   apiKey: "AIzaSyCkz8reepxrmnTzFVkHvrYXm8pFIfb69Vk",
   authDomain: "food-blog-ac5c6.firebaseapp.com",
@@ -95,23 +95,54 @@ function App() {
     }
   };
 
+  function Layout(props) {
+    return (
+      <div>
+        <header>
+          <Nav user={user} signOutUser={signOutUser} />
+        </header>
+        <div className="container">
+          <Link to={"/create"}>Ny</Link>
+        </div>
+        <main>{props.children}</main>
+        <footer className="container">
+          <p>&copy; 2023</p>
+        </footer>
+      </div>
+    );
+  }
+
   return (
     <>
-      <Nav user={user} signOutUser={signOutUser} />
-      {recipes.length > 0 ? (
-        <main className="container">
-          <RecipeForm postRecipe={addRecipe} author={user} />
+      <BrowserRouter>
+        <Layout>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  {recipes.length > 0 ? (
+                    <main className="container">
+                      <Heading recipe={recipes[0]} />
+                      <RecipeList
+                        recipe={recipes}
+                        deleteRecipe={deleteRecipe}
+                      />
+                    </main>
+                  ) : (
+                    <Loading />
+                  )}
+                </>
+              }
+            />
 
-          <Heading recipe={recipes[0]} />
-          <RecipeList recipe={recipes} />
-        </main>
-      ) : (
-        <Loading />
-      )}
-
-      {/* <footer>
-        <p>&copy; 2023</p>
-      </footer> */}
+            <Route
+              path="/create"
+              element={<CreateRecipe postRecipe={addRecipe} author={user} />}
+            />
+          </Routes>
+        </Layout>
+      </BrowserRouter>
     </>
   );
 }
