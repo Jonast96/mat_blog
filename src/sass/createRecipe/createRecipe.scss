@@ -1,8 +1,6 @@
 @import "../variables.scss";
 
 .form-container {
-  margin: auto;
-
   .button-div {
     display: flex;
     gap: 16px;
@@ -47,6 +45,20 @@
       &:focus {
         border: 1px solid $primary-color;
       }
+    }
+  }
+  .preview {
+    display: none;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .form-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    .preview {
+      display: block;
     }
   }
 }

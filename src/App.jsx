@@ -18,6 +18,7 @@ import Loading from "./components/Loading";
 import CreateRecipe from "./components/createRecipe/CreateRecipe";
 
 import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import Recipe from "./components/recipe/Recipe";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCkz8reepxrmnTzFVkHvrYXm8pFIfb69Vk",
@@ -140,6 +141,8 @@ function App() {
               path="/create"
               element={<CreateRecipe postRecipe={addRecipe} author={user} />}
             />
+
+            <Route path="/test" element={<Recipe recipe={recipes[0]} />} />
           </Routes>
         </Layout>
       </BrowserRouter>

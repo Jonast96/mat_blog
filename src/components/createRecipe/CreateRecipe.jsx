@@ -4,8 +4,10 @@ import IngredientsList from "../IngredientsList";
 import TextAreaInput from "../TextAreaInput";
 import DropdownSelect from "../DropdownSelect";
 import "../../sass/createRecipe/createRecipe.scss";
+import "../../sass/recipe/recipe.scss";
 
 import { Link } from "react-router-dom";
+import Recipe from "../recipe/recipe";
 
 function CreateRecipe({ postRecipe, author }) {
   const [recipe, setRecipe] = useState({
@@ -70,8 +72,10 @@ function CreateRecipe({ postRecipe, author }) {
 
   return (
     <div className="form-container container">
-      <Link to={"/"}>Tilbake</Link>
       <form onSubmit={handleSubmit}>
+        <div>
+          <Link to={"/"}>Tilbake</Link>
+        </div>
         <label htmlFor="title">Tittel:</label>
         <TextInput
           id="title"
@@ -144,6 +148,11 @@ function CreateRecipe({ postRecipe, author }) {
           <button className="secondary-button">Forhåndsvisning</button>
         </div>
       </form>
+
+      <div className="preview">
+        <h2>Forhåndsvisning</h2>
+        {/* <Recipe recipe={recipe} /> */}
+      </div>
     </div>
   );
 }
