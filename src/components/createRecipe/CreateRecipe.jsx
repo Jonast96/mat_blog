@@ -7,7 +7,7 @@ import "../../sass/createRecipe/createRecipe.scss";
 import "../../sass/recipe/recipe.scss";
 
 import { Link } from "react-router-dom";
-import Recipe from "../recipe/recipe";
+import FullRecipe from "../fullRecipe/FullRecipe";
 
 function CreateRecipe({ postRecipe, author }) {
   const [recipe, setRecipe] = useState({
@@ -70,6 +70,7 @@ function CreateRecipe({ postRecipe, author }) {
     { label: "over 120 min", value: "over 120" },
   ];
 
+  console.log(recipe);
   return (
     <div className="form-container container">
       <form onSubmit={handleSubmit}>
@@ -100,7 +101,6 @@ function CreateRecipe({ postRecipe, author }) {
           placeholder="Eks: Dette er en familieoppskrift..."
         />
 
-        {/* Assuming IngredientsList has its own internal labels */}
         <IngredientsList
           ingredients={recipe.ingredients}
           setIngredients={(value) => handleChange("ingredients", value)}
@@ -151,7 +151,7 @@ function CreateRecipe({ postRecipe, author }) {
 
       <div className="preview">
         <h2>Forhåndsvisning</h2>
-        {/* <Recipe recipe={recipe} /> */}
+        <FullRecipe recipe={recipe} />
       </div>
     </div>
   );
