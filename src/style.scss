@@ -1,0 +1,109 @@
+// Importing variables
+@import "/src/sass/variables.scss";
+
+// Reset some default browser styles
+* {
+  box-sizing: border-box;
+}
+
+body,
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+// Apply a background color to the whole page
+body {
+  background-color: $bg-color;
+  color: $text-color;
+  font-family: $font-stack;
+  font-size: $font-size-base;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+// Container
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+// Header styles
+.header {
+  background-color: $primary-color;
+  color: white;
+  text-align: center;
+  padding: 1rem;
+}
+
+// Button styles
+.button {
+  background-color: $primary-color;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: $default-border-radius;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: lighten($primary-color, 10%);
+  }
+}
+
+.secondary-button {
+  background-color: $secondary-color;
+  color: white;
+  padding: 0.5rem;
+  border: none;
+  border-radius: $default-border-radius;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: lighten($secondary-color, 10%);
+  }
+}
+
+// Loading styles
+.spinner {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  margin: 100px auto;
+}
+
+.double-bounce1,
+.double-bounce2 {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #333;
+  opacity: 0.6;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: sk-bounce 2s infinite ease-in-out;
+}
+
+.double-bounce2 {
+  animation-delay: -1s;
+}
+
+@keyframes sk-bounce {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}

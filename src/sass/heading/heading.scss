@@ -1,0 +1,62 @@
+@import "../variables.scss";
+.heading {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background-repeat: no-repeat;
+  background-position: right;
+  min-height: 500px;
+  background-size: 0;
+  color: #333;
+  margin-top: 50px;
+  .image {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+  }
+  .card {
+    max-width: 600px;
+    margin: 0 auto;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 2px 2px 5px rgb(0 0 0 / 0.7);
+    font-family: sans-serif;
+    padding: 10px;
+  }
+  .card span {
+    font-size: 0.8rem;
+    color: #555;
+  }
+
+  .card button {
+    margin-top: 0.5rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .heading {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-repeat: no-repeat;
+    background-position: right;
+    min-height: 500px;
+    background-size: 70%;
+    color: #333;
+    .image {
+      display: none;
+    }
+    .card {
+      max-width: 70ch;
+      padding: 2em 3em;
+      border-radius: 8px;
+      background-color: white;
+      box-shadow: 2px 2px 5px rgb(0 0 0 / 0.7);
+      font-family: sans-serif;
+      margin: 0;
+    }
+    .card span {
+      font-size: 0.8rem;
+      color: #555;
+    }
+  }
+}
