@@ -10,7 +10,19 @@
     margin-bottom: 8px;
   }
 
-  input[type="text"],
+  input[type="text"] {
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid #ccc;
+    outline: none;
+
+    &:focus {
+      border: 1px solid $primary-color;
+    }
+  }
+
   input[type="url"],
   textarea {
     font-size: 16px;
@@ -52,13 +64,30 @@
   }
 }
 
+.ingredient-container {
+  display: flex;
+  margin-bottom: 5px;
+  p {
+    margin: 0;
+    border-radius: 0px 5px 5px 0px;
+  }
+}
+
 @media screen and (min-width: 900px) {
   .form-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 70% auto;
     gap: 16px;
+    align-items: start;
+    .previewButton {
+      display: none;
+    }
     .preview {
       display: block;
+      border: solid 2px #ccc;
+      padding: 16px;
+      height: auto;
+      overflow: auto;
     }
   }
 }

@@ -23,13 +23,17 @@
   .recipe-main {
     display: grid;
     grid-template-columns: 1fr 5fr;
-
+    gap: 16px;
     ul {
       padding: 0;
       margin: 0;
+      border: 1px solid #ccc;
       li {
         display: flex;
       }
+    }
+    .recipeText {
+      white-space: pre-line;
     }
   }
 }

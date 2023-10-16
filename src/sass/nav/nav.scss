@@ -1,3 +1,5 @@
+@import "../variables.scss";
+
 nav {
   h1 {
     font-size: 1.2em;
@@ -9,8 +11,6 @@ nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-top: solid 1px black;
-    border-bottom: solid 1px black;
     padding: 5px;
     margin-top: 5px;
   }
@@ -23,6 +23,16 @@ nav {
       height: 40px;
       border-radius: 50%;
       margin-right: 10px;
+    }
+  }
+  .addRecipe {
+    background-color: $primary-color;
+    padding: 2px 5px;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    &:hover {
+      background-color: darken($primary-color, 10%);
     }
   }
 }
