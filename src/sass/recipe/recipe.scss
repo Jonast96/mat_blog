@@ -4,8 +4,31 @@
   gap: 16px;
   img {
     width: 100%;
-    max-height: 200px;
+    max-height: 40vh;
     object-fit: cover;
+    border-radius: 5px;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 100;
+  }
+
+  .img-title {
+    background-color: #eee;
+    border-radius: 5px;
+    padding: 10px;
+  }
+
+  .recipe-userinfo {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    img {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+    }
   }
 
   .recipe-tags {
@@ -25,15 +48,21 @@
     grid-template-columns: 1fr 5fr;
     gap: 16px;
     ul {
-      padding: 0;
+      background-color: #eee;
+      border-radius: 5px;
+      padding: 10px;
       margin: 0;
-      border: 1px solid #ccc;
       li {
         display: flex;
       }
     }
     .recipeText {
       white-space: pre-line;
+    }
+    .recipe-info {
+      background-color: #eee;
+      border-radius: 5px;
+      padding: 10px;
     }
   }
 }
