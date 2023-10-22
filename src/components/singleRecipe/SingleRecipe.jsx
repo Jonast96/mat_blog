@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import FullRecipe from "../fullRecipe/FullRecipe";
-import "../../sass/singleRecipe/singleRecipe.scss";
 
 function SingleRecipe({ recipes }) {
   const location = useLocation();
