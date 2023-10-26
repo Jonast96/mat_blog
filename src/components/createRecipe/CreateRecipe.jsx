@@ -6,8 +6,6 @@ import DropdownSelect from "../DropdownSelect";
 import "../../sass/createRecipe/createRecipe.scss";
 import "../../sass/recipe/recipe.scss";
 
-import CustomModal from "../Custommodal";
-
 import { Link } from "react-router-dom";
 import FullRecipe from "../fullRecipe/FullRecipe";
 
@@ -71,13 +69,6 @@ function CreateRecipe({ postRecipe, author }) {
     { label: "60-120 min", value: "60-120" },
     { label: "over 120 min", value: "over 120" },
   ];
-  const [modalIsOpen, setIsOpen] = useState(false);
-
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-  const afterOpenModal = () => {
-    console.log("Modal is open");
-  };
   return (
     <div className="form-container container">
       <form onSubmit={handleSubmit}>
@@ -156,27 +147,12 @@ function CreateRecipe({ postRecipe, author }) {
           <button className="button" type="submit">
             Legg til oppskrift
           </button>
-          <button
-            type="button"
-            onClick={openModal}
-            className="secondary-button previewButton"
-          >
-            Forhåndsvisning
-          </button>
         </div>
       </form>
 
       <div className="preview">
         <h2>Forhåndsvisning</h2>
         <FullRecipe recipe={recipe} />
-      </div>
-      <div>
-        <CustomModal
-          isOpen={modalIsOpen}
-          afterOpen={afterOpenModal}
-          onRequestClose={closeModal}
-          body={<FullRecipe recipe={recipe} />}
-        />
       </div>
     </div>
   );

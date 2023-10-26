@@ -18,6 +18,7 @@
     background-color: #eee;
     border-radius: 5px;
     padding: 10px;
+    margin-bottom: 20px;
   }
 
   .recipe-userinfo {
@@ -66,6 +67,13 @@
       background-color: #eee;
       border-radius: 5px;
       padding: 10px;
+    }
+  }
+
+  .intro {
+    p {
+      font-size: 1.3rem;
+      font-weight: 100;
     }
   }
 }
