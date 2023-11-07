@@ -13,7 +13,7 @@ function Heading({ recipe }) {
           <img className="image" src={recipe?.recipeImage} alt="" />
         </div>
         <p className=" ">{recipe?.intro}</p>
-        <button className="button ">View recipe</button>
+        <button className="button ">Se oppskrift</button>
       </div>
     </div>
   );

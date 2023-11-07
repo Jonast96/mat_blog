@@ -1,8 +1,15 @@
 @import "../variables.scss";
 
 nav {
+  a {
+    text-decoration: underline;
+    color: $primary-color;
+    &:hover {
+      color: darken($primary-color, 10%);
+    }
+  }
   h1 {
-    font-size: 1.2em;
+    font-size: 2rem;
     margin: 0;
     padding: 0;
     text-align: center;

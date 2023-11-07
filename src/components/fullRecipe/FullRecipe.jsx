@@ -27,7 +27,7 @@ function FullRecipe({ recipe }) {
               <span>{recipe?.dish || ""}</span>
             </div>
             <div className="intro">
-              <p>{recipe?.intro || ""}</p>
+              <p className="introText">{recipe?.intro || ""}</p>
             </div>
           </div>
           <div className="recipe-text-container">

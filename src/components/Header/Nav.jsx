@@ -11,7 +11,7 @@ function Nav({ user, signOutUser }) {
     <nav className="container">
       <div className="mainNav">
         <Link to="/">
-          <h1>Food blog</h1>
+          <h1>MatKroken</h1>
         </Link>
         {user?.accessToken ? (
           <div className="userNav">
