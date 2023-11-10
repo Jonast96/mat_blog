@@ -121,7 +121,11 @@ function App() {
                 <>
                   {recipes.length > 0 ? (
                     <main className="container">
-                      <Heading recipe={recipes[5]} />
+                      <Heading
+                        recipe={
+                          recipes[Math.floor(Math.random() * recipes.length)]
+                        }
+                      />
                       <RecipeList
                         recipe={recipes}
                         deleteRecipe={deleteRecipe}

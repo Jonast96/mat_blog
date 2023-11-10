@@ -6,7 +6,6 @@ import DropdownSelect from "../DropdownSelect";
 import "../../sass/createRecipe/createRecipe.scss";
 import "../../sass/recipe/recipe.scss";
 
-import { Link } from "react-router-dom";
 import FullRecipe from "../fullRecipe/FullRecipe";
 
 function CreateRecipe({ postRecipe, author }) {
@@ -43,6 +42,17 @@ function CreateRecipe({ postRecipe, author }) {
       authorImage: author?.photoURL || "",
     };
     postRecipe(completeRecipe);
+
+    alert("Oppskrift lagt til!");
+    setRecipe({
+      title: "",
+      ingredients: [""],
+      recipeText: "",
+      recipeImage: "",
+      tags: [],
+      intro: "",
+      time: 0,
+    });
   };
 
   const difficultyOptions = [
@@ -72,9 +82,6 @@ function CreateRecipe({ postRecipe, author }) {
   return (
     <div className="form-container container">
       <form onSubmit={handleSubmit}>
-        <div>
-          <Link to={"/"}>Tilbake</Link>
-        </div>
         <label htmlFor="title">Tittel:</label>
         <TextInput
           id="title"
