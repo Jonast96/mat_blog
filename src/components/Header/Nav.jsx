@@ -15,12 +15,12 @@ function Nav({ user, signOutUser }) {
         </Link>
         {user?.accessToken ? (
           <div className="userNav">
-            {/* <SignOutButton signOutUser={signOutUser} /> */}
             <a href="/create">
               <div className="addRecipe">
-                <FontAwesomeIcon icon={faPlus} />
+                <FontAwesomeIcon icon={faPlus} /> Ny oppskrift
               </div>{" "}
             </a>
+            <SignOutButton signOutUser={signOutUser} />
             <p>{user.displayName}</p>
             <img src={user.photoURL} alt="" />
           </div>

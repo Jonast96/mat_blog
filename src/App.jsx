@@ -18,7 +18,7 @@ import Loading from "./components/Loading";
 import CreateRecipe from "./components/createRecipe/CreateRecipe";
 import SingleRecipe from "./components/singleRecipe/SingleRecipe";
 
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCkz8reepxrmnTzFVkHvrYXm8pFIfb69Vk",
@@ -32,7 +32,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 function App() {
@@ -51,6 +50,7 @@ function App() {
 
   // Sign out the user
   const signOutUser = async () => {
+    window.location.href = "/";
     try {
       await signOut(auth);
       console.log("User signed out successfully");

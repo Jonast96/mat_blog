@@ -1,7 +1,7 @@
 function SignOutButton({ signOutUser }) {
   return (
-    <button className="button" onClick={signOutUser}>
-      Sign Out
+    <button className="button sign-out" onClick={signOutUser}>
+      Logg ut{" "}
     </button>
   );
 }

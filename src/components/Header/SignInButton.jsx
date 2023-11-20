@@ -17,7 +17,7 @@ function SignInButton() {
 
   return (
     <button className="button" onClick={signInWithGoogle}>
-      Sign in
+      Logg inn
     </button>
   );
 }

@@ -6,8 +6,6 @@ import DropdownSelect from "../DropdownSelect";
 import "../../sass/createRecipe/createRecipe.scss";
 import "../../sass/recipe/recipe.scss";
 
-import FullRecipe from "../fullRecipe/FullRecipe";
-
 function CreateRecipe({ postRecipe, author }) {
   const [recipe, setRecipe] = useState({
     title: "",
@@ -28,31 +26,38 @@ function CreateRecipe({ postRecipe, author }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedTags = [...recipe.tags];
-    if (recipe.difficulty) {
-      updatedTags.push(recipe.difficulty);
-    }
-    if (recipe.dish) {
-      updatedTags.push(recipe.dish);
-    }
-    const completeRecipe = {
-      ...recipe,
-      tags: updatedTags,
-      authorName: author?.displayName || "",
-      authorImage: author?.photoURL || "",
-    };
-    postRecipe(completeRecipe);
 
-    alert("Oppskrift lagt til!");
-    setRecipe({
-      title: "",
-      ingredients: [""],
-      recipeText: "",
-      recipeImage: "",
-      tags: [],
-      intro: "",
-      time: 0,
-    });
+    if (!author) {
+      alert("Du må være logget inn for å legge til en oppskrift");
+      window.location.href = "/";
+      return;
+    } else {
+      const updatedTags = [...recipe.tags];
+      if (recipe.difficulty) {
+        updatedTags.push(recipe.difficulty);
+      }
+      if (recipe.dish) {
+        updatedTags.push(recipe.dish);
+      }
+      const completeRecipe = {
+        ...recipe,
+        tags: updatedTags,
+        authorName: author?.displayName || "",
+        authorImage: author?.photoURL || "",
+      };
+      postRecipe(completeRecipe);
+
+      alert("Oppskrift lagt til!");
+      setRecipe({
+        title: "",
+        ingredients: [""],
+        recipeText: "",
+        recipeImage: "",
+        tags: [],
+        intro: "",
+        time: 0,
+      });
+    }
   };
 
   const difficultyOptions = [
