@@ -1,16 +1,28 @@
 @import "../variables.scss";
 
 .form-container {
+  max-width: 900px;
   .button-div {
     display: flex;
     gap: 16px;
   }
   label {
     font-size: 14px;
-    margin-bottom: 8px;
   }
 
-  input[type="text"],
+  input[type="text"] {
+    font-size: 16px;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px 0px 0px 5px;
+    border: 1px solid #ccc;
+    outline: none;
+
+    &:focus {
+      border: 1px solid $primary-color;
+    }
+  }
+
   input[type="url"],
   textarea {
     font-size: 16px;
@@ -27,7 +39,6 @@
 
   button {
     margin-top: 16px;
-    width: 100%;
   }
 
   .DropdownSelect {
@@ -36,9 +47,11 @@
   .dropdowns {
     display: flex;
     gap: 16px;
+    flex-wrap: wrap;
+
     select {
       width: 100%;
-      padding: 10px;
+      padding: 5px;
       border-radius: 5px;
       font-size: 16px;
 
@@ -47,18 +60,13 @@
       }
     }
   }
-  .preview {
-    display: none;
-  }
 }
 
-@media screen and (min-width: 900px) {
-  .form-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 16px;
-    .preview {
-      display: block;
-    }
+.ingredient-container {
+  display: flex;
+  margin-bottom: 5px;
+  p {
+    margin: 0;
+    border-radius: 0px 5px 5px 0px;
   }
 }

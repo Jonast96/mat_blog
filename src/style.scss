@@ -25,6 +25,22 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+
+  overflow-y: scroll;
+}
+/* Style the scrollbar container */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Style the scrollbar handle */
+::-webkit-scrollbar-thumb {
+  background: $primary-color; /* Color of the handle */
+}
+
+/* On hover, make it a bit darker */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 // Container

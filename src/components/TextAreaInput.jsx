@@ -7,6 +7,7 @@ function TextAreaInput({ value, onChange, placeholder }) {
       value={value}
       onChange={(e) => onChange(e.target.value)}
       placeholder={placeholder}
+      required
     />
   );
 }

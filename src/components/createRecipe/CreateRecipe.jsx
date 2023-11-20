@@ -6,9 +6,6 @@ import DropdownSelect from "../DropdownSelect";
 import "../../sass/createRecipe/createRecipe.scss";
 import "../../sass/recipe/recipe.scss";
 
-import { Link } from "react-router-dom";
-import FullRecipe from "../fullRecipe/FullRecipe";
-
 function CreateRecipe({ postRecipe, author }) {
   const [recipe, setRecipe] = useState({
     title: "",
@@ -29,25 +26,43 @@ function CreateRecipe({ postRecipe, author }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const updatedTags = [...recipe.tags];
-    if (recipe.difficulty) {
-      updatedTags.push(recipe.difficulty);
+
+    if (!author) {
+      alert("Du må være logget inn for å legge til en oppskrift");
+      window.location.href = "/";
+      return;
+    } else {
+      const updatedTags = [...recipe.tags];
+      if (recipe.difficulty) {
+        updatedTags.push(recipe.difficulty);
+      }
+      if (recipe.dish) {
+        updatedTags.push(recipe.dish);
+      }
+      const completeRecipe = {
+        ...recipe,
+        tags: updatedTags,
+        authorName: author?.displayName || "",
+        authorImage: author?.photoURL || "",
+      };
+      postRecipe(completeRecipe);
+
+      alert("Oppskrift lagt til!");
+      setRecipe({
+        title: "",
+        ingredients: [""],
+        recipeText: "",
+        recipeImage: "",
+        tags: [],
+        intro: "",
+        time: 0,
+      });
     }
-    if (recipe.dish) {
-      updatedTags.push(recipe.dish);
-    }
-    const completeRecipe = {
-      ...recipe,
-      tags: updatedTags,
-      authorName: author?.displayName || "",
-      authorImage: author?.photoURL || "",
-    };
-    postRecipe(completeRecipe);
   };
 
   const difficultyOptions = [
     { label: "ingen", value: "" },
-    { label: "lett", value: "lett" },
+    { label: "enkel", value: "enkel" },
     { label: "middels", value: "middels" },
     { label: "vanskelig", value: "vanskelig" },
   ];
@@ -69,20 +84,16 @@ function CreateRecipe({ postRecipe, author }) {
     { label: "60-120 min", value: "60-120" },
     { label: "over 120 min", value: "over 120" },
   ];
-
-  console.log(recipe);
   return (
     <div className="form-container container">
       <form onSubmit={handleSubmit}>
-        <div>
-          <Link to={"/"}>Tilbake</Link>
-        </div>
         <label htmlFor="title">Tittel:</label>
         <TextInput
           id="title"
           value={recipe.title}
           onChange={(value) => handleChange("title", value)}
           placeholder="Eks: Kjapp Kyllinggryte"
+          required={true}
         />
 
         <label htmlFor="recipeImage">Bilde:</label>
@@ -91,6 +102,7 @@ function CreateRecipe({ postRecipe, author }) {
           value={recipe.recipeImage}
           onChange={(value) => handleChange("recipeImage", value)}
           placeholder="Eks: bildeurl.com/kyllinggryte.jpg"
+          required={true}
         />
 
         <label htmlFor="intro">Historie:</label>
@@ -99,6 +111,7 @@ function CreateRecipe({ postRecipe, author }) {
           value={recipe.intro}
           onChange={(value) => handleChange("intro", value)}
           placeholder="Eks: Dette er en familieoppskrift..."
+          required
         />
 
         <IngredientsList
@@ -112,6 +125,7 @@ function CreateRecipe({ postRecipe, author }) {
           value={recipe.recipeText}
           onChange={(value) => handleChange("recipeText", value)}
           placeholder="Eks: 1. Forvarm ovnen..."
+          required
         />
 
         <div className="dropdowns">
@@ -145,14 +159,8 @@ function CreateRecipe({ postRecipe, author }) {
           <button className="button" type="submit">
             Legg til oppskrift
           </button>
-          <button className="secondary-button">Forhåndsvisning</button>
         </div>
       </form>
-
-      <div className="preview">
-        <h2>Forhåndsvisning</h2>
-        <FullRecipe recipe={recipe} />
-      </div>
     </div>
   );
 }

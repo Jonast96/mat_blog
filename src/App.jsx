@@ -16,8 +16,9 @@ import Heading from "./components/Heading/Heading";
 import RecipeList from "./components/recipeList/RecipeList";
 import Loading from "./components/Loading";
 import CreateRecipe from "./components/createRecipe/CreateRecipe";
+import SingleRecipe from "./components/singleRecipe/SingleRecipe";
 
-import { BrowserRouter, Route, Link, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 const firebaseConfig = {
   apiKey: "AIzaSyCkz8reepxrmnTzFVkHvrYXm8pFIfb69Vk",
@@ -31,7 +32,6 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
 const db = getFirestore(app);
 
 function App() {
@@ -50,6 +50,7 @@ function App() {
 
   // Sign out the user
   const signOutUser = async () => {
+    window.location.href = "/";
     try {
       await signOut(auth);
       console.log("User signed out successfully");
@@ -101,9 +102,6 @@ function App() {
         <header>
           <Nav user={user} signOutUser={signOutUser} />
         </header>
-        <div className="container">
-          <Link to={"/create"}>Ny</Link>
-        </div>
         <main>{props.children}</main>
         <footer className="container">
           <p>&copy; 2023</p>
@@ -123,7 +121,11 @@ function App() {
                 <>
                   {recipes.length > 0 ? (
                     <main className="container">
-                      <Heading recipe={recipes[0]} />
+                      <Heading
+                        recipe={
+                          recipes[Math.floor(Math.random() * recipes.length)]
+                        }
+                      />
                       <RecipeList
                         recipe={recipes}
                         deleteRecipe={deleteRecipe}
@@ -139,6 +141,11 @@ function App() {
             <Route
               path="/create"
               element={<CreateRecipe postRecipe={addRecipe} author={user} />}
+            />
+
+            <Route
+              path="/recipe"
+              element={<SingleRecipe recipes={recipes} />}
             />
           </Routes>
         </Layout>
