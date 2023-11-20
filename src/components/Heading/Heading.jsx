@@ -1,6 +1,9 @@
 import "../../sass/heading/heading.scss";
 
+import { Link } from "react-router-dom";
+
 function Heading({ recipe }) {
+  console.log(recipe);
   return (
     <div
       style={{ backgroundImage: `url(${recipe?.recipeImage})` }}
@@ -13,7 +16,10 @@ function Heading({ recipe }) {
           <img className="image" src={recipe?.recipeImage} alt="" />
         </div>
         <p className=" ">{recipe?.intro}</p>
-        <button className="button ">Se oppskrift</button>
+
+        <Link to={`/recipe/?id=${recipe?.id}`}>
+          <button className="button">Se oppskrift</button>
+        </Link>
       </div>
     </div>
   );

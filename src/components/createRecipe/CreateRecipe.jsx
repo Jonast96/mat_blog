@@ -57,7 +57,7 @@ function CreateRecipe({ postRecipe, author }) {
 
   const difficultyOptions = [
     { label: "ingen", value: "" },
-    { label: "lett", value: "lett" },
+    { label: "enkel", value: "enkel" },
     { label: "middels", value: "middels" },
     { label: "vanskelig", value: "vanskelig" },
   ];
@@ -156,11 +156,6 @@ function CreateRecipe({ postRecipe, author }) {
           </button>
         </div>
       </form>
-
-      <div className="preview">
-        <h2>Forhåndsvisning</h2>
-        <FullRecipe recipe={recipe} />
-      </div>
     </div>
   );
 }

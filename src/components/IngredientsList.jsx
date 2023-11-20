@@ -52,7 +52,7 @@ function IngredientsList({ ingredients, setIngredients }) {
         type="button"
         onClick={addIngredient}
       >
-        Add Ingredient
+        Legg til ingrediens
       </button>
     </div>
   );
