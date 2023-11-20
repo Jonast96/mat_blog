@@ -2,6 +2,7 @@ import { useLocation } from "react-router-dom";
 import FullRecipe from "../fullRecipe/FullRecipe";
 
 function SingleRecipe({ recipes }) {
+  window.scrollTo(0, 0);
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const recipeId = queryParams.get("id");

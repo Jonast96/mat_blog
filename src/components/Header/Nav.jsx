@@ -16,7 +16,7 @@ function Nav({ user, signOutUser }) {
         {user?.accessToken ? (
           <div className="userNav">
             <a href="/create">
-              <div className="addRecipe">
+              <div className="addRecipe button">
                 <FontAwesomeIcon icon={faPlus} /> Ny oppskrift
               </div>{" "}
             </a>
