@@ -1,13 +1,27 @@
 @import "../variables.scss";
 
 .form-container {
-  max-width: 900px;
-  .button-div {
-    display: flex;
+  label {
+    font-size: 16px;
+  }
+
+  form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 16px;
   }
-  label {
-    font-size: 14px;
+  .main-form {
+    display: flex;
+    flex-direction: column;
+
+    gap: 16px;
+  }
+  .mobile-display {
+    display: none;
+  }
+
+  .form-description {
+    margin-bottom: 16px;
   }
 
   input[type="text"] {
@@ -68,5 +82,19 @@
   p {
     margin: 0;
     border-radius: 0px 5px 5px 0px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .form-container {
+    form {
+      grid-template-columns: 1fr;
+    }
+    .desktop-display {
+      display: none;
+    }
+    .mobile-display {
+      display: block;
+    }
   }
 }

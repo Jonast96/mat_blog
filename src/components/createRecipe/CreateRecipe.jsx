@@ -86,79 +86,101 @@ function CreateRecipe({ postRecipe, author }) {
   ];
   return (
     <div className="form-container container">
+      <h1 className="form-title">Legg til oppskrift</h1>
+      <p className="form-description">
+        Her kan du legge til en oppskrift. Husk å fylle ut alle feltene!
+      </p>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="title">Tittel:</label>
-        <TextInput
-          id="title"
-          value={recipe.title}
-          onChange={(value) => handleChange("title", value)}
-          placeholder="Eks: Kjapp Kyllinggryte"
-          required={true}
-        />
-
-        <label htmlFor="recipeImage">Bilde:</label>
-        <TextInput
-          id="recipeImage"
-          value={recipe.recipeImage}
-          onChange={(value) => handleChange("recipeImage", value)}
-          placeholder="Eks: bildeurl.com/kyllinggryte.jpg"
-          required={true}
-        />
-
-        <label htmlFor="intro">Historie:</label>
-        <TextAreaInput
-          id="intro"
-          value={recipe.intro}
-          onChange={(value) => handleChange("intro", value)}
-          placeholder="Eks: Dette er en familieoppskrift..."
-          required
-        />
-
-        <IngredientsList
-          ingredients={recipe.ingredients}
-          setIngredients={(value) => handleChange("ingredients", value)}
-        />
-
-        <label htmlFor="recipeText">Oppskrift:</label>
-        <TextAreaInput
-          id="recipeText"
-          value={recipe.recipeText}
-          onChange={(value) => handleChange("recipeText", value)}
-          placeholder="Eks: 1. Forvarm ovnen..."
-          required
-        />
-
-        <div className="dropdowns">
+        <div className="main-form">
           <div>
-            Vansklighetsgrad:
-            <DropdownSelect
-              options={difficultyOptions}
-              selectedValue={recipe.difficulty}
-              onChange={(value) => handleChange("difficulty", value)}
+            <label htmlFor="title">Tittel:</label>
+            <TextInput
+              id="title"
+              value={recipe.title}
+              onChange={(value) => handleChange("title", value)}
+              placeholder="Eks: Kjapp Kyllinggryte"
+              required={true}
             />
           </div>
+
           <div>
-            Type rett:
-            <DropdownSelect
-              options={dishOptions}
-              selectedValue={recipe.dish}
-              onChange={(value) => handleChange("dish", value)}
+            <label htmlFor="recipeImage">Bilde:</label>
+            <TextInput
+              id="recipeImage"
+              value={recipe.recipeImage}
+              onChange={(value) => handleChange("recipeImage", value)}
+              placeholder="Eks: bildeurl.com/kyllinggryte.jpg"
+              required={true}
             />
           </div>
+
           <div>
-            Tid:
-            <DropdownSelect
-              options={timeOptions}
-              selectedValue={recipe.time}
-              onChange={(value) => handleChange("time", value)}
+            <label htmlFor="intro">Historie:</label>
+            <TextAreaInput
+              id="intro"
+              value={recipe.intro}
+              onChange={(value) => handleChange("intro", value)}
+              placeholder="Eks: Dette er en familieoppskrift..."
+              required
             />
+          </div>
+
+          <div>
+            <label htmlFor="recipeText">Oppskrift:</label>
+            <TextAreaInput
+              id="recipeText"
+              value={recipe.recipeText}
+              onChange={(value) => handleChange("recipeText", value)}
+              placeholder="Eks: 1. Forvarm ovnen..."
+              required
+            />
+          </div>
+          <div className="mobile-display">
+            <label htmlFor="ingredients">Ingredienser:</label>
+            <IngredientsList
+              ingredients={recipe.ingredients}
+              setIngredients={(value) => handleChange("ingredients", value)}
+            />
+          </div>
+          <div className="dropdowns">
+            <div>
+              Vansklighetsgrad:
+              <DropdownSelect
+                options={difficultyOptions}
+                selectedValue={recipe.difficulty}
+                onChange={(value) => handleChange("difficulty", value)}
+              />
+            </div>
+            <div>
+              Type rett:
+              <DropdownSelect
+                options={dishOptions}
+                selectedValue={recipe.dish}
+                onChange={(value) => handleChange("dish", value)}
+              />
+            </div>
+            <div>
+              Tid:
+              <DropdownSelect
+                options={timeOptions}
+                selectedValue={recipe.time}
+                onChange={(value) => handleChange("time", value)}
+              />
+            </div>
+          </div>
+
+          <div className="button-div">
+            <button className="button" type="submit">
+              Legg til oppskrift
+            </button>
           </div>
         </div>
-
-        <div className="button-div">
-          <button className="button" type="submit">
-            Legg til oppskrift
-          </button>
+        <div className="desktop-display">
+          <label htmlFor="ingredients">Ingredienser:</label>
+          <IngredientsList
+            ingredients={recipe.ingredients}
+            setIngredients={(value) => handleChange("ingredients", value)}
+          />
         </div>
       </form>
     </div>
