@@ -2,11 +2,14 @@ import SignInButton from "./SignInButton";
 import SignOutButton from "./SignOutButton";
 import "../../sass/nav/nav.scss";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faCaretDown } from "@fortawesome/free-solid-svg-icons";
 
 function Nav({ user, signOutUser }) {
+  const [showDropdown, setShowDropdown] = useState(false);
+
   return (
     <nav className="container">
       <div className="mainNav">
@@ -20,9 +23,23 @@ function Nav({ user, signOutUser }) {
                 <FontAwesomeIcon icon={faPlus} /> Ny oppskrift
               </div>{" "}
             </a>
-            <SignOutButton signOutUser={signOutUser} />
-            <p>{user.displayName}</p>
-            <img src={user.photoURL} alt="" />
+            <div
+              onClick={() => setShowDropdown(!showDropdown)}
+              className="profileDiv"
+            >
+              <div>
+                <img src={user.photoURL} alt="" />
+                <FontAwesomeIcon icon={faCaretDown} />
+              </div>
+              <div
+                className={
+                  showDropdown ? "profileDropdown show" : "profileDropdown hide"
+                }
+              >
+                {/* <Link to="/profile">Profil</Link> */}
+                <SignOutButton signOutUser={signOutUser} />
+              </div>
+            </div>
           </div>
         ) : (
           <SignInButton />
