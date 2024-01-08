@@ -5,7 +5,11 @@ function IngredientsList({ ingredients, setIngredients }) {
   const inputRefs = useRef([]);
 
   const addIngredient = () => {
-    setIngredients([...ingredients, ""]);
+    if (ingredients[ingredients.length - 1] !== "") {
+      setIngredients([...ingredients, ""]);
+    } else {
+      alert("Du må fylle ut ingrediensen før du legger til en ny");
+    }
   };
 
   const removeIngredient = (index) => {
@@ -44,14 +48,7 @@ function IngredientsList({ ingredients, setIngredients }) {
           </p>
         </div>
       ))}
-      <button
-        style={{
-          marginTop: "0.5rem",
-        }}
-        className="button"
-        type="button"
-        onClick={addIngredient}
-      >
+      <button className="button" type="button" onClick={addIngredient}>
         Legg til ingrediens
       </button>
     </div>

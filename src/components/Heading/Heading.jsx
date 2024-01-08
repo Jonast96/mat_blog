@@ -10,6 +10,7 @@ function Heading({ recipe }) {
       className="heading"
     >
       <div className="card">
+        <h2>Ukens Oppskrift</h2>
         <span className=" ">{recipe?.authorName}</span>
         <h2 className=" ">{recipe?.title}</h2>
         <div className="img-container">

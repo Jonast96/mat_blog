@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 
 function RecipeCard({ recipe }) {
   return (
-    <Link to={`/recipe/?id=${recipe.id}`}>
-      <div className="recipe-card">
+    <div className="recipe-card">
+      <Link to={`/recipe/?id=${recipe.id}`}>
         <img src={recipe?.recipeImage} alt="" />
         <div className="recipe-card-info">
           <span>{recipe?.authorName}</span>
@@ -19,8 +19,8 @@ function RecipeCard({ recipe }) {
             ) : null}
           </div>
         </div>
-      </div>
-    </Link>
+      </Link>
+    </div>
   );
 }
 
