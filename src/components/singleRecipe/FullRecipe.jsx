@@ -4,14 +4,18 @@ function FullRecipe({ recipe, author }) {
   const [isAuthor, setIsAuthor] = useState(false);
 
   useEffect(() => {
-    if (recipe?.uid === author?.uid) {
+    if (recipe?.uid && author?.uid && recipe.uid === author.uid) {
       setIsAuthor(true);
+    } else {
+      setIsAuthor(false);
     }
   }, [recipe, author]);
 
   if (!recipe) {
     return <h2>Loading recipe</h2>;
   }
+
+  console.log(isAuthor);
 
   return (
     <div className="recipe">
