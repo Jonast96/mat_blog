@@ -36,7 +36,6 @@ function Nav({ user, signOutUser }) {
                   showDropdown ? "profileDropdown show" : "profileDropdown hide"
                 }
               >
-                {/* <Link to="/profile">Profil</Link> */}
                 <SignOutButton signOutUser={signOutUser} />
               </div>
             </div>

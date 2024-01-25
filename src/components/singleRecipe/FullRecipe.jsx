@@ -1,6 +1,26 @@
-function FullRecipe({ recipe }) {
+import { useState, useEffect } from "react";
+
+function FullRecipe({ recipe, author }) {
+  const [isAuthor, setIsAuthor] = useState(false);
+
+  useEffect(() => {
+    if (recipe?.uid === author?.uid) {
+      setIsAuthor(true);
+    }
+  }, [recipe, author]);
+
+  if (!recipe) {
+    return <h2>Loading recipe</h2>;
+  }
+
   return (
     <div className="recipe">
+      {isAuthor && (
+        <div className="recipe-buttons">
+          <button className="edit">Rediger</button>
+          <button className="delete">Slett</button>
+        </div>
+      )}
       <img src={recipe?.recipeImage || ""} alt={recipe?.title || ""} />
 
       <div className="recipe-main">
