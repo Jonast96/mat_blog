@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TextInput from "../TextInput";
 import IngredientsList from "../IngredientsList";
 import TextAreaInput from "../TextAreaInput";
@@ -44,6 +44,7 @@ function CreateRecipe({ postRecipe, author }) {
         tags: updatedTags,
         authorName: author?.displayName || "",
         authorImage: author?.photoURL || "",
+        uid: author?.uid || "",
       };
       postRecipe(completeRecipe);
 
@@ -110,7 +111,7 @@ function CreateRecipe({ postRecipe, author }) {
               value={recipe.recipeImage}
               onChange={(value) => handleChange("recipeImage", value)}
               placeholder="Eks: bildeurl.com/kyllinggryte.jpg"
-              required={true}
+              required={false}
             />
           </div>
 

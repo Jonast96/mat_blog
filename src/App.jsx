@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getAuth, onAuthStateChanged, signOut } from "@firebase/auth";
 import {
   getFirestore,
@@ -145,7 +144,7 @@ function App() {
 
             <Route
               path="/recipe"
-              element={<SingleRecipe recipes={recipes} />}
+              element={<SingleRecipe recipes={recipes} author={user} />}
             />
           </Routes>
         </Layout>
