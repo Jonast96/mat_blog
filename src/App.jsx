@@ -89,7 +89,8 @@ function App() {
       setRecipes((prevRecipes) =>
         prevRecipes.filter((recipe) => recipe.id !== recipeId)
       );
-      console.log("Recipe deleted successfully");
+
+      window.location.href = "/";
     } catch (e) {
       console.error("Error deleting recipe: ", e);
     }
@@ -144,7 +145,13 @@ function App() {
 
             <Route
               path="/recipe"
-              element={<SingleRecipe recipes={recipes} author={user} />}
+              element={
+                <SingleRecipe
+                  recipes={recipes}
+                  author={user}
+                  deleteRecipe={deleteRecipe}
+                />
+              }
             />
           </Routes>
         </Layout>
