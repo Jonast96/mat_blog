@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAuth, onAuthStateChanged, signOut } from "@firebase/auth";
 import {
@@ -13,7 +12,7 @@ import {
 import Nav from "./components/Header/Nav";
 import Heading from "./components/Heading/Heading";
 import RecipeList from "./components/recipeList/RecipeList";
-import Loading from "./components/Loading";
+import Loading from "./components/util/Loading";
 import CreateRecipe from "./components/createRecipe/CreateRecipe";
 import SingleRecipe from "./components/singleRecipe/SingleRecipe";
 
@@ -89,7 +88,8 @@ function App() {
       setRecipes((prevRecipes) =>
         prevRecipes.filter((recipe) => recipe.id !== recipeId)
       );
-      console.log("Recipe deleted successfully");
+
+      window.location.href = "/";
     } catch (e) {
       console.error("Error deleting recipe: ", e);
     }
@@ -144,7 +144,13 @@ function App() {
 
             <Route
               path="/recipe"
-              element={<SingleRecipe recipes={recipes} author={user} />}
+              element={
+                <SingleRecipe
+                  recipes={recipes}
+                  author={user}
+                  deleteRecipe={deleteRecipe}
+                />
+              }
             />
           </Routes>
         </Layout>

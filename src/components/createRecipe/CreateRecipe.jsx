@@ -1,8 +1,8 @@
 import { useState } from "react";
-import TextInput from "../TextInput";
-import IngredientsList from "../IngredientsList";
-import TextAreaInput from "../TextAreaInput";
-import DropdownSelect from "../DropdownSelect";
+import TextInput from "../util/TextInput";
+import IngredientsList from "../util/IngredientsList";
+import TextAreaInput from "../util/TextAreaInput";
+import DropdownSelect from "../util/DropdownSelect";
 import "../../sass/createRecipe/createRecipe.scss";
 import "../../sass/recipe/recipe.scss";
 

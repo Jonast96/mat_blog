@@ -1,4 +1,4 @@
-import "../sass/recipeCard.scss";
+import "../../sass/recipecard.scss";
 import { Link } from "react-router-dom";
 
 function RecipeCard({ recipe }) {

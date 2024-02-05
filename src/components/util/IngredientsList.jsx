@@ -1,5 +1,5 @@
-import React, { useRef, useEffect } from "react";
-import TextInput from "./TextInput";
+import { useRef, useEffect } from "react";
+import TextInput from "../util/TextInput";
 
 function IngredientsList({ ingredients, setIngredients }) {
   const inputRefs = useRef([]);

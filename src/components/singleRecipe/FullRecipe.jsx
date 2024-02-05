@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function FullRecipe({ recipe, author }) {
+function FullRecipe({ recipe, author, deleteRecipe }) {
   const [isAuthor, setIsAuthor] = useState(false);
 
   useEffect(() => {
@@ -14,15 +14,16 @@ function FullRecipe({ recipe, author }) {
   if (!recipe) {
     return <h2>Loading recipe</h2>;
   }
-
-  console.log(isAuthor);
+  console.log(recipe.id);
 
   return (
     <div className="recipe">
       {isAuthor && (
         <div className="recipe-buttons">
           <button className="edit">Rediger</button>
-          <button className="delete">Slett</button>
+          <button onClick={() => deleteRecipe(recipe.id)} className="delete">
+            Slett
+          </button>
         </div>
       )}
       <img src={recipe?.recipeImage || ""} alt={recipe?.title || ""} />
