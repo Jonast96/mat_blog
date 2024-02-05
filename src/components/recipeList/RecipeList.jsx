@@ -1,5 +1,7 @@
-import RecipeCard from "../RecipeCard";
+import RecipeCard from "./RecipeCard";
+import "../../sass/recipeCard.scss";
 import "../../sass/recipeList/recipeList.scss";
+
 import Filters from "./Filters";
 import { useState } from "react";
 
