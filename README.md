@@ -1,8 +1,20 @@
-# React + Vite
+Basic Food Blog
+A simple React app for creating and sharing recipes, built with Firebase for user authentication and data storage.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Features
+Create and share recipes
+View recipe lists
+Edit or delete your own recipes
+User login/logout
+Setup
+Clone this repository.
+Install dependencies (npm install or yarn install)
+Create a Firebase project and obtain your API keys.
+Add your Firebase API keys to a .env file in the project's root.
+Run npm start to start the development server.
+Tech Stack
+React
+Firebase (Authentication, Firestore)
+React Router
+To-Do
+This is a side project, and features may be added over time!
