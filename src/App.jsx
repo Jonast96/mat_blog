@@ -120,7 +120,7 @@ function App() {
               element={
                 <>
                   {recipes.length > 0 ? (
-                    <main className="container">
+                    <div className="container">
                       <Heading
                         recipe={
                           recipes[Math.floor(Math.random() * recipes.length)]
@@ -130,7 +130,7 @@ function App() {
                         recipe={recipes}
                         deleteRecipe={deleteRecipe}
                       />
-                    </main>
+                    </div>
                   ) : (
                     <Loading />
                   )}
