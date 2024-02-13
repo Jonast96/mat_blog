@@ -13,8 +13,9 @@ import Nav from "./components/Header/Nav";
 import Heading from "./components/Heading/Heading";
 import RecipeList from "./components/recipeList/RecipeList";
 import Loading from "./components/util/Loading";
-import CreateRecipe from "./components/createRecipe/CreateRecipe";
+
 import SingleRecipe from "./components/singleRecipe/SingleRecipe";
+import CreateRecipe from "./components/createRecipe/CreateRecipe";
 
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
